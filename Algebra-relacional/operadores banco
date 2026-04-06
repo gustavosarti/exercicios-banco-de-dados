@@ -1,0 +1,39 @@
+### **Operadores Básicos e Estendidos (Transformação de Dados)**
+* **`π` (Projeção):** Seleciona colunas (atributos) específicas de uma relação, descartando as demais.
+* **`σ` (Seleção):** Filtra linhas (tuplas) que atendam a uma condição específica.
+* **`ρ` (Renomear):** Altera o nome de uma relação inteira na consulta.
+* **`←` (Renomear Coluna - Esquerda):** Atribui um novo nome a uma coluna (ex: `novo ← antigo`).
+* **`→` (Renomear Coluna - Direita):** Atribui um novo nome a uma coluna (ex: `antigo → novo`).
+* **`τ` (Order By / Ordenação):** Ordena os resultados com base em uma ou mais colunas (ascendente ou descendente).
+* **`γ` (Group By / Agregação):** Agrupa linhas com valores idênticos e aplica funções matemáticas (como `count`, `sum`, `avg`).
+
+### **Operadores Lógicos e de Comparação (Predicados)**
+* **`∧` (E / AND):** Ambas as condições precisam ser verdadeiras.
+* **`∨` (Ou / OR):** Pelo menos uma das condições precisa ser verdadeira.
+* **`¬` (Não / NOT):** Inverte o valor lógico de uma condição.
+* **`=` (Igualdade):** Verifica se os valores são iguais.
+* **`≠` (Diferença):** Verifica se os valores não são iguais.
+* **`≥` (Maior ou igual):** Verifica se o valor da esquerda é maior ou igual ao da direita.
+* **`≤` (Menor ou igual):** Verifica se o valor da esquerda é menor ou igual ao da direita.
+
+### **Operações de Conjuntos (Teoria dos Conjuntos)**
+* **`∩` (Interseção):** Retorna as tuplas que existem simultaneamente em duas relações.
+* **`∪` (União):** Junta os resultados de duas relações (removendo duplicatas). Ambas precisam ter a mesma estrutura.
+* **`÷` (Divisão):** Usado para consultas "para todos". Retorna os elementos da tabela esquerda que se relacionam com *todos* os elementos da tabela direita.
+* **`-` (Subtração / Diferença):** Retorna as tuplas presentes na primeira relação que não existem na segunda.
+
+### **Operações de Junção (Combinação de Múltiplas Relações)**
+* **`⨯` (Produto Cartesiano / Cross Join):** Combina absolutamente todas as linhas de uma tabela com todas as linhas de outra.
+* **`⨝` (Junção Natural / Theta-Join):** Combina tabelas com base em atributos de mesmo nome (natural) ou com base em uma condição matemática específica (theta).
+* **`⟕` (Left Outer Join):** Mantém todas as tuplas da relação à esquerda e traz as correspondências da direita (preenchendo com nulos o que não cruzar).
+* **`⟖` (Right Outer Join):** Mantém todas as tuplas da relação à direita e traz as correspondências da esquerda (preenchendo com nulos o que não cruzar).
+* **`⟗` (Full Outer Join):** Mantém todas as tuplas de ambas as relações, preenchendo com nulos de ambos os lados onde não houver correspondência.
+* **`⋉` (Left Semi Join):** Retorna apenas as tuplas da relação à esquerda que *possuem* alguma correspondência na relação à direita.
+* **`⋊` (Right Semi Join):** Retorna apenas as tuplas da relação à direita que *possuem* alguma correspondência na relação à esquerda.
+* **`▷` (Anti Join):** Retorna as tuplas da primeira relação que *não possuem* nenhuma correspondência na segunda relação.
+
+### **Sintaxe Utilitária e Estrutural**
+* **`=` (Atribuição):** Guarda o resultado de uma expressão de álgebra relacional em uma variável ou tabela temporária.
+* **`--` (Comentário de Linha):** O que estiver à direita na mesma linha é ignorado pelo interpretador.
+* **`/* */` (Comentário Multilinha):** Qualquer bloco de texto contido entre esses delimitadores é ignorado.
+* **`{...}` (Relação Aninhada / Inline):** Define uma relação (tabela) "estática" escrita manualmente direto no código, onde você declara o esquema (colunas e tipos) e logo abaixo insere as tuplas.
