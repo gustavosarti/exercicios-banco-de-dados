@@ -1,0 +1,1 @@
+pi CONCAT(forename, ' ', surname) -> Piloto, year -> Ano (drivers join (pi driverId, year (results join races join seasons) - pi driverId, year ((pi driverId, year (results join races join seasons) join pi year, raceId (races join seasons)) - pi driverId, year, raceId (sigma points > 0 (results join races join seasons)))))

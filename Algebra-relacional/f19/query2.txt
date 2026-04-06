@@ -1,0 +1,1 @@
+pi forename || ' ' || surname -> Piloto, year -> Ano ( ( pi driverId, year (results join races) - pi driverId, year ( (pi driverId, year (results join races) join pi year, raceId (races)) - pi driverId, year, raceId (sigma points > 0 (results join races)) ) ) join drivers )

@@ -1,1 +1,0 @@
-pi customer_name (sigma customer_street LIKE '%t' or customer_city LIKE 'S%' (customer))

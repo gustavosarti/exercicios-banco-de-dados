@@ -1,0 +1,7 @@
+corridas_do_ano = pi year, raceId (races join seasons)
+pilotos_no_ano = pi driverId, year (results join races join seasons)
+todas_combinacoes = pilotos_no_ano join corridas_do_ano
+corridas_pontuadas = pi driverId, year, raceId (sigma points > 0 (results join races join seasons))
+falhas = pi driverId, year (todas_combinacoes - corridas_pontuadas)
+gabaritaram = pilotos_no_ano - falhas
+pi CONCAT(forename, ' ', surname) -> Piloto, year -> Ano (gabaritaram join drivers)
