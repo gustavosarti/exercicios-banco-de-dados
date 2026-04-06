@@ -1,0 +1,4 @@
+EmprestimosSmith = σ customer_name = 'Smith' ( borrower )
+AgenciasSmith = EmprestimosSmith ⨝ loan
+DetalhesAgencias = AgenciasSmith ⨝ branch
+π branch_name, branch_city ( DetalhesAgencias )

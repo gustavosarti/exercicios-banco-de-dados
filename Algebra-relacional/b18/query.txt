@@ -1,0 +1,5 @@
+AgenciasConta = π branch_name, branch_city ( σ customer_name = 'Hayes' ( depositor ⨝ account ⨝ branch ) )
+
+AgenciasEmprestimo = π branch_name, branch_city ( σ customer_name = 'Hayes' ( borrower ⨝ loan ⨝ branch ) )
+
+AgenciasConta ∩ AgenciasEmprestimo
