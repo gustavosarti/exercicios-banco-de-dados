@@ -1,0 +1,7 @@
+pi customer_name (
+  sigma branch_name != branch_name2 (
+    (pi customer_name, branch_name (depositor natural join account))
+    join
+    (rho branch_name -> branch_name2 (pi customer_name, branch_name (depositor natural join account)))
+  )
+)

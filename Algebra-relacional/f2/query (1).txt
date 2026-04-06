@@ -1,0 +1,7 @@
+PilotosTop3 = pi driverId (sigma positionOrder <= 3 (results))
+
+NacPilotos = pi nationality (drivers ⨝ PilotosTop3)
+
+NacEquipes = pi nationality (constructors)
+
+NacPilotos - NacEquipes

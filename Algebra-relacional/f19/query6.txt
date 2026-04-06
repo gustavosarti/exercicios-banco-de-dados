@@ -1,0 +1,17 @@
+Pilotos = pi driverId, forename || ' ' || surname -> Piloto (drivers)
+
+Pontuou = pi driverId, year, raceId (sigma points > 0 (results natural join races))
+
+PilotoAno = pi driverId, year (results natural join races)
+
+CorridasAno = pi year, raceId (races)
+
+Esperado = PilotoAno natural join CorridasAno
+
+Faltou = Esperado - Pontuou
+
+Falhou = pi driverId, year (Faltou)
+
+Perfeito = PilotoAno - Falhou
+
+pi Piloto, year -> Ano (Perfeito natural join Pilotos)

@@ -1,0 +1,5 @@
+Gps = pi gpId, name (gps)
+
+GpsComCorrida = pi gpId, name (gps ⨝ races)
+
+pi name (Gps - GpsComCorrida)

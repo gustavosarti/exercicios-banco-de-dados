@@ -1,0 +1,11 @@
+EquipeFr = rho name → Equipe (pi constructorId, name (sigma nationality = 'French' (constructors)))
+
+Pilotos = pi driverId, forename || ' ' || surname → Piloto (drivers)
+
+PrimeiraPos = sigma positionOrder = 1 (results)
+
+Corridas = rho year → Ano (pi raceId, circuitId, year (races))
+
+Circuitos = rho name → Circuito (pi circuitId, name (circuits))
+
+pi Equipe, Piloto, Circuito, Ano (EquipeFr ⟕ (Circuitos ⨝ (Corridas ⨝ (Pilotos ⨝ PrimeiraPos))))

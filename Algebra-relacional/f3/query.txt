@@ -1,0 +1,5 @@
+Circuitos = pi circuitId, name (circuits)
+
+CircuitosComCorrida = pi circuitId, name (circuits ⨝ races)
+
+pi name (Circuitos - CircuitosComCorrida)
