@@ -1,0 +1,9 @@
+EmprestimosCliente = borrower ⨝ loan
+
+AgenciasPorCliente = π customer_name, branch_name ( EmprestimosCliente )
+
+ContagemAgencias = γ customer_name; count(branch_name) → qtd ( AgenciasPorCliente )
+
+MaisDeUma = σ qtd > 1 ( ContagemAgencias )
+
+π customer_name ( MaisDeUma )

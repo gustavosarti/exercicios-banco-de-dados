@@ -1,0 +1,17 @@
+-- 1. Contar o total de corridas realizadas em cada ano
+CorridasPorAno = γ year; count(raceId)→tot_races ( races )
+
+-- 2. Filtrar apenas os resultados com pontuação (maior que zero)
+Pontuou = σ points > 0 ( results )
+
+-- 3. Juntar com as corridas para descobrir o ano e limpar ocorrências duplicadas (mesma corrida)
+ParticipacoesValidas = π driverId, raceId, year ( Pontuou ⨝ races )
+
+-- 4. Contar em quantas corridas cada piloto pontuou por ano
+CorridasPontuadas = γ driverId, year; count(raceId)→drv_races ( ParticipacoesValidas )
+
+-- 5. Juntar as contagens e filtrar os pilotos que pontuaram em 100% das corridas do seu ano
+AnosPerfeitos = π driverId, year ( σ tot_races = drv_races ( CorridasPorAno ⨝ CorridasPontuadas ) )
+
+-- 6. Cruzar com a tabela de pilotos para obter os nomes e projetar o resultado final
+π forename || ' ' || surname → Piloto, year → Ano ( AnosPerfeitos ⨝ drivers )

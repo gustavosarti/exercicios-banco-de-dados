@@ -1,0 +1,1 @@
+σ ROWNUM() <= 10 ( π GP, Temporada, Qtde_Abandonos ( τ Qtde_Abandonos desc, GP asc, Temporada asc ( π name → GP, year → Temporada, Qtde_Abandonos ( γ name, year; count(resultId) → Qtde_Abandonos ( ( σ status LIKE '%Engine%' ( status ) ) ⨝ results ⨝ races ⨝ gps ) ) ) ) )

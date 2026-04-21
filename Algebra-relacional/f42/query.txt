@@ -1,0 +1,20 @@
+-- 1. Filtrar os status de abandono que contêm a palavra "Engine" em qualquer posição
+MotorStatus = σ status LIKE '%Engine%' ( status )
+
+-- 2. Cruzar com os resultados para identificar as corridas em que isso ocorreu
+Falhas = MotorStatus ⨝ results
+
+-- 3. Juntar com as tabelas de corridas e Grandes Prémios para obter o ano e o nome do GP
+Detalhes = Falhas ⨝ races ⨝ gps
+
+-- 4. Agrupar por nome do GP e ano, contando o número de registos (abandonos)
+Agrupado = γ name, year; count(resultId) → Qtde_Abandonos ( Detalhes )
+
+-- 5. Renomear as colunas para o padrão exato de saída exigido
+Projetado = π name → GP, year → Temporada, Qtde_Abandonos ( Agrupado )
+
+-- 6. Ordenar decrescente pela quantidade e crescente (alfabética) pelo nome do GP
+Ordenado = τ Qtde_Abandonos desc, GP asc ( Projetado )
+
+-- 7. Limitar o resultado ao Top 10 usando a função do Relax
+σ ROWNUM() <= 10 ( Ordenado )

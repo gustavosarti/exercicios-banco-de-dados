@@ -1,0 +1,14 @@
+-- 1. Contar o total de corridas de cada circuito
+TotalCorridas = γ circuitId; count(raceId)→tot_races ( races )
+
+-- 2. Pegar as participações reais, limpando as duplicatas de resultados na mesma corrida
+ParticipacoesReais = π driverId, circuitId, raceId ( results ⨝ races )
+
+-- 3. Contar quantas corridas cada piloto fez em cada circuito
+CorridasPiloto = γ driverId, circuitId; count(raceId)→drv_races ( ParticipacoesReais )
+
+-- 4. Juntar as duas contagens e filtrar apenas onde os números batem (100% de presença)
+Perfeitos = π driverId, circuitId ( σ tot_races = drv_races ( TotalCorridas ⨝ CorridasPiloto ) )
+
+-- 5. Cruzar com os nomes para o resultado final
+π forename || ' ' || surname → Piloto, name → Circuito ( ( Perfeitos ⨝ drivers ) ⨝ circuits )

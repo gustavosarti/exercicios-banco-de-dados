@@ -1,0 +1,7 @@
+ContasPerryridge = π customer_name ( σ branch_name = 'Perryridge' ( ( depositor ) ⨝ ( account ) ) )
+
+EmprestimosPerryridge = π customer_name ( σ branch_name = 'Perryridge' ( ( borrower ) ⨝ ( loan ) ) )
+
+ClientesAmbos = ( ContasPerryridge ) ∩ ( EmprestimosPerryridge )
+
+π customer_name, customer_city ( ( ClientesAmbos ) ⨝ ( customer ) )
